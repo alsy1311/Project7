@@ -84,6 +84,11 @@ int main()
 	{
 		std::cout << v3[i] << std::endl;
 	}
+	std::reverse(std::begin(v3), std::end(v3));
+	for (int i = 0; i < v3.size(); i++)
+	{
+		std::cout << v3[i] << std::endl;
+	}
 	system("pause");
 
 }
