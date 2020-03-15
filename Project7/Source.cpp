@@ -78,6 +78,12 @@ int main()
 	v3.resize(v.size());
 	std::transform(v.begin(), v.end(), v2.begin(), v3.begin(), subtraction);
 	std::replace_if(v3.begin(), v3.end(), ziro, 0);
+	auto last2 = std::remove(v3.begin(), v3.end(), 0);
+	v3.erase(last2, v3.end());
+	for (int i = 0; i < v3.size(); i++)
+	{
+		std::cout << v3[i] << std::endl;
+	}
 	system("pause");
 
 }
