@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iterator>
 #include <random>
+#include <cmath>
 bool p(int x);
 int main()
 {
@@ -26,6 +27,14 @@ int main()
 		}
 		int count = std::count_if(v.begin(), v.end(), p);
 		std::cout << count << std::endl;
+		std::vector<int>::iterator result;
+		result = std::max_element(v.begin(), v.end());
+		int max = v[std::distance(v.begin(), result)];
+		std::cout << max << std::endl;
+		std::vector<int>::iterator result2;
+		result2 = std::min_element(v.begin(), v.end());
+		int min = v[std::distance(v.begin(), result2)];
+		std::cout << min << std::endl;
 		system("pause");
 
 }
