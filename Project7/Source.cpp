@@ -4,6 +4,7 @@
 #include <iterator>
 #include <random>
 #include <cmath>
+#include <numeric>
 bool p(int x);
 bool p1(int x1);
 int square(int x2);
@@ -55,6 +56,17 @@ int main()
 	{
 		std::cout << v[i] << std::endl;
 	}
+	std::vector<int> v2;
+	for (int i = 0; i < v.size(); i++) {
+
+		v2.push_back(rand());
+	}
+	for (int i = 0; i < v2.size(); i++)
+	{
+		std::cout << v2[i] << std::endl;
+	}
+	int sum = std::accumulate(v2.begin(), v2.end(), 0);
+	std::cout << sum << std::endl;
 	system("pause");
 
 }
