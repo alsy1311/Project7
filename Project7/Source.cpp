@@ -9,6 +9,7 @@ bool p(int x);
 bool p1(int x1);
 int square(int x2);
 int subtraction(int x, int y);
+bool ziro(int x);
 int main()
 {
 
@@ -76,6 +77,7 @@ int main()
 	std::vector<int> v3;
 	v3.resize(v.size());
 	std::transform(v.begin(), v.end(), v2.begin(), v3.begin(), subtraction);
+	std::replace_if(v3.begin(), v3.end(), ziro, 0);
 	system("pause");
 
 }
@@ -107,10 +109,19 @@ bool p1(int x)
  int square(int x)
 {
 	return x * x;
-	//return h;
 }
  int subtraction(int x, int y) {
 	 return x - y;
+ }
+ bool ziro(int x) {
+	 if (x < 0)
+	 {
+		 return true;
+	 }
+	 else
+	 {
+		 return false;
+	 }
  }
 
 
