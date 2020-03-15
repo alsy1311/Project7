@@ -67,6 +67,11 @@ int main()
 	}
 	int sum = std::accumulate(v2.begin(), v2.end(), 0);
 	std::cout << sum << std::endl;
+	std::fill_n(std::inserter(v2, std::next(v2.begin())), 3, 1);
+	for (int i = 0; i < v2.size(); i++)
+	{
+		std::cout << v2[i] << std::endl;
+	}
 	system("pause");
 
 }
