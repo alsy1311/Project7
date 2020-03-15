@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iterator>
 #include <random>
+bool p(int x);
 int main()
 {
 
@@ -23,9 +24,19 @@ int main()
 		{
 			std::cout << v[i] << std::endl;
 		}
-
+		int count = std::count_if(v.begin(), v.end(), p);
+		std::cout << count << std::endl;
 		system("pause");
 
+}
+bool p(int x)
+{
+	if (x % 2 != 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 
