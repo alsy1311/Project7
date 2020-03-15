@@ -6,6 +6,7 @@
 #include <cmath>
 bool p(int x);
 bool p1(int x1);
+int square(int x2);
 int main()
 {
 
@@ -48,6 +49,12 @@ int main()
 	else {
 		std::cout << "Not found simple count    ";
 	}
+	std::transform(v.begin(), v.end(),v.begin(), square);
+
+	for (int i = 0; i < v.size(); i++)
+	{
+		std::cout << v[i] << std::endl;
+	}
 	system("pause");
 
 }
@@ -75,6 +82,11 @@ bool p1(int x)
 	else {
 		return true;
 	}
+}
+ int square(int x)
+{
+	return x = x * x;
+	//return h;
 }
 
 
