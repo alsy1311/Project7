@@ -8,6 +8,7 @@
 bool p(int x);
 bool p1(int x1);
 int square(int x2);
+int subtraction(int x, int y);
 int main()
 {
 
@@ -67,11 +68,14 @@ int main()
 	}
 	int sum = std::accumulate(v2.begin(), v2.end(), 0);
 	std::cout << sum << std::endl;
-	std::fill_n(std::inserter(v2, std::next(v2.begin())), 3, 1);
+	std::fill_n(v2.begin(), 3, 1);
 	for (int i = 0; i < v2.size(); i++)
 	{
 		std::cout << v2[i] << std::endl;
 	}
+	std::vector<int> v3;
+	v3.resize(v.size());
+	std::transform(v.begin(), v.end(), v2.begin(), v3.begin(), subtraction);
 	system("pause");
 
 }
@@ -102,8 +106,11 @@ bool p1(int x)
 }
  int square(int x)
 {
-	return x = x * x;
+	return x * x;
 	//return h;
 }
+ int subtraction(int x, int y) {
+	 return x - y;
+ }
 
 
