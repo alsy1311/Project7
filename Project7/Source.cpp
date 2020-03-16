@@ -10,6 +10,7 @@ bool p1(int x1);
 int square(int x2);
 int subtraction(int x, int y);
 bool ziro(int x);
+bool p2(int x);
 int main()
 {
 
@@ -94,22 +95,27 @@ int main()
 	for (int i = 0; i < 3; i++) {
 		std::cout << v3[i] << std::endl;
 	}
-	/*std::sort(v.begin(), v.end());
+	std::sort(v.begin(), v.end());
 	std::sort(v2.begin(), v2.end());
 	std::vector<int> v4;
-	std::vector<int>::iterator it;
-	v3.resize(v.size()+ v2.size());
-	it = std::set_union(v.begin(),v.end(),v2.begin(),v2.end(),v4.begin());
-	v.resize(it - v.begin());
-	*/
-	/*std::sort( v4.begin(), v4.end());
-	int k = 0;
+	v4.resize(v.size());
+	std::merge(v.begin(), v.end(), v2.begin(), v2.end(), std::back_inserter(v4));
+	std::copy(v4.begin(), v4.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << '\n';
+	std::vector<int> v5;
+	v5.resize(v4.size());
+	std::remove_copy_if(v4.begin(), v4.end(),v5.begin(), p2);
+	
+/*	int k = 0;
 	for (int i = 0; i < v4.size(); i++) {
 		if (v[i] <= 1) {
 			k += 1;
 		}
 	}
+	std::cout << k << std::endl;
 	*/
+
+	
 
 	system("pause");
 
@@ -155,6 +161,16 @@ bool p1(int x)
 	 {
 		 return false;
 	 }
+ }
+ bool p2(int x ) {
+	 if (x <= 1) {
+		 return false ;
+	 }
+	 else
+	 {
+		 return true;
+	 }
+
  }
 
 
