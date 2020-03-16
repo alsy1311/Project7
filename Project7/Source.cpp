@@ -79,7 +79,7 @@ int main()
 	std::transform(v.begin(), v.end(), v2.begin(), v3.begin(), subtraction);
 	std::replace_if(v3.begin(), v3.end(), ziro, 0);
 	auto last2 = std::remove(v3.begin(), v3.end(), 0);
-	v3.erase(last2, v3.end());
+	//v3.erase(last2, v3.end());
 	for (int i = 0; i < v3.size(); i++)
 	{
 		std::cout << v3[i] << std::endl;
@@ -89,6 +89,28 @@ int main()
 	{
 		std::cout << v3[i] << std::endl;
 	}
+	
+	std::nth_element(v3.begin(), std::next(v3.begin(), 3), v3.end(), std::greater<int>());
+	for (int i = 0; i < 3; i++) {
+		std::cout << v3[i] << std::endl;
+	}
+	/*std::sort(v.begin(), v.end());
+	std::sort(v2.begin(), v2.end());
+	std::vector<int> v4;
+	std::vector<int>::iterator it;
+	v3.resize(v.size()+ v2.size());
+	it = std::set_union(v.begin(),v.end(),v2.begin(),v2.end(),v4.begin());
+	v.resize(it - v.begin());
+	*/
+	/*std::sort( v4.begin(), v4.end());
+	int k = 0;
+	for (int i = 0; i < v4.size(); i++) {
+		if (v[i] <= 1) {
+			k += 1;
+		}
+	}
+	*/
+
 	system("pause");
 
 }
