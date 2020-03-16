@@ -105,18 +105,21 @@ int main()
 	std::vector<int> v5;
 	v5.resize(v4.size());
 	std::remove_copy_if(v4.begin(), v4.end(),v5.begin(), p2);
-	
-/*	int k = 0;
-	for (int i = 0; i < v4.size(); i++) {
-		if (v[i] <= 1) {
-			k += 1;
-		}
-	}
-	std::cout << k << std::endl;
-	*/
-
-	
-
+	std::cout << "v : "<< std::endl;
+	std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << '\n';
+	std::cout << "v2 : " << std::endl;
+	std::copy(v2.begin(), v2.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << '\n';
+	std::cout << "v3 : " << std::endl;
+	std::copy(v3.begin(), v3.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << '\n';
+	std::cout << "v4 : " << std::endl;
+	std::copy(v4.begin(), v4.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << '\n';
+	std::cout << "v5 : " << std::endl;
+	std::copy(v5.begin(), v5.end(), std::ostream_iterator<int>(std::cout, " "));
+	std::cout << '\n';
 	system("pause");
 
 }
