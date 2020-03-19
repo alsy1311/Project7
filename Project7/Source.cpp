@@ -65,6 +65,7 @@ int main()
 	//8 Заменила все числа в V их квадратами 
 	std::transform(v.begin(), v.end(), v.begin(), [](auto x) {
 		return x * x ;
+
 	});
 
 	for (int i = 0; i < v.size(); i++)
