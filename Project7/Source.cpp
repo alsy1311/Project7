@@ -5,23 +5,13 @@
 #include <random>
 #include <cmath>
 #include <numeric>
-bool p(int x);
-bool p1(int x1);
-int square(int x2);
-int subtraction(int x, int y);
-bool ziro(int x);
-bool p2(int x);
 int main()
 {
 	//1 Создала последовательность целых чисел от 1 до 10 
 	std::vector<int> v{ 1,2,3,4,5,6,7,8,9,10 };
 	
 	//2 Добавила еще несколько элементов через cin 
-	for (int t = 0; t < 3; t++) {
-		int l = 0;
-		std::cin >> l;
-		std::fill_n(std::back_inserter(v), 1, l);
-	}
+	std::copy(std::istream_iterator<int>(std::cin), std::istream_iterator<int>(), std::inserter(v, v.end()));
 
 	//3 Перемешала V случайным образом 
 	std::random_device rd;
@@ -39,7 +29,9 @@ int main()
 		}
 
 	//5 Подсчитала количество нечетных в V
-	int count = std::count_if(v.begin(), v.end(), p);
+		int count = std::count_if(v.begin(), v.end(), [](int x) {
+			return x % 2;
+			});
 	std::cout << "Сount if 2N + 1     ";
 	std::cout << count << std::endl;
 
@@ -53,8 +45,22 @@ int main()
 	std::cout << *result2 << std::endl;
 
 	//7 Нашла хотя бы одно простое число 
-	auto result1 = std::find_if(v.begin(), v.end(), p1);
-	if ((result1 != v.end())||(p1(v.back()) == true)) {
+	auto result1 = std::find_if(v.begin(), v.end(), [](auto x) {
+		int l = 0;
+		for (int i = 2; i < x - 1; i++) {
+			float k = x / i;
+			if (k == int(k)) {
+				l += 1;
+			}
+		}
+		if (l >= 1) {
+			return false;
+		}
+		else {
+			return true;
+		}
+		});
+	if (result1 != v.end() {
 		std::cout << "SIMPLE COUNT:      ";
 		std::cout << *result1<< std::endl;
 	}
@@ -108,7 +114,16 @@ int main()
 	}
 
 	//13 Заменила каждый отрицательный элемент в V3 
-	std::replace_if(v3.begin(), v3.end(), ziro, 0);
+	std::replace_if(v3.begin(), v3.end(), [](auto x) {
+		if (x < 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		}, 0);
 	std::cout << "Nana" << std::endl;
 	for (int i = 0; i < v3.size(); i++)
 	{
@@ -173,40 +188,7 @@ int main()
 	system("pause");
 
 }
-bool p(int x)
-{
-	return x % 2;
-}
-bool p1(int x) 
-{
-	int l = 0;
-	for (int i = 2; i < x - 1; i++) {
-		float k = x / i;
-		if (k == int(k)) {
-			l += 1;
-		}
-	}
-	if (l >= 1){
-		return false;
-	}
-	else {
-		return true;
-	}
-}
- int square(int x)
-{
-	return x * x;
-}
- bool ziro(int x) {
-	 if (x < 0)
-	 {
-		 return true;
-	 }
-	 else
-	 {
-		 return false;
-	 }
- }
+
 
 
 
