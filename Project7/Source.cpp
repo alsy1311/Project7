@@ -12,7 +12,7 @@ int main()
 	std::vector<int> v{ 1,2,3,4,5,6,7,8,9,10 };
 	
 	//2 Добавила еще несколько элементов через cin 
-	//std::copy(std::istream_iterator<int>(std::cin), std::istream_iterator<int>(), std::inserter(v, v.end()));
+	std::copy(std::istream_iterator<int>(std::cin), std::istream_iterator<int>(), std::inserter(v, v.end()));
 
 	//3 Перемешала V случайным образом 
 	std::random_device rd;
