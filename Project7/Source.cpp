@@ -5,13 +5,14 @@
 #include <random>
 #include <cmath>
 #include <numeric>
+#include <ctime>
 int main()
 {
 	//1 Создала последовательность целых чисел от 1 до 10 
 	std::vector<int> v{ 1,2,3,4,5,6,7,8,9,10 };
 	
 	//2 Добавила еще несколько элементов через cin 
-	std::copy(std::istream_iterator<int>(std::cin), std::istream_iterator<int>(), std::inserter(v, v.end()));
+	//std::copy(std::istream_iterator<int>(std::cin), std::istream_iterator<int>(), std::inserter(v, v.end()));
 
 	//3 Перемешала V случайным образом 
 	std::random_device rd;
@@ -22,7 +23,7 @@ int main()
 	std::sort(v.begin(), v.end());
 	auto last = std::unique(v.begin(), v.end());
 	v.erase(last, v.end());
-	std::cout << "Delete duplicates     ";
+	std::cout << "Delete duplicates"<< std::endl;
 		for (int i = 0; i < v.size(); i++)
 		{
 			std::cout << v[i] << std::endl;
@@ -32,7 +33,7 @@ int main()
 		int count = std::count_if(v.begin(), v.end(), [](int x) {
 			return x % 2;
 			});
-	std::cout << "Сount if 2N + 1     ";
+	std::cout << "Сount if 2N + 1 "<< std::endl;
 	std::cout << count << std::endl;
 
 	//6 Определила минимальное и максимальное значение в V 
@@ -60,7 +61,7 @@ int main()
 			return true;
 		}
 		});
-	if (result1 != v.end() {
+	if (result1 != v.end()) {
 		std::cout << "SIMPLE COUNT:      ";
 		std::cout << *result1<< std::endl;
 	}
@@ -80,7 +81,7 @@ int main()
 	}
 
 	//9 Создала последовательность V2 из N случайных чисел, где N - длина V
-	std::vector<int> v2;
+	/*std::vector<int> v2;
 	for (int i = 0; i < v.size(); i++) {
 
 		v2.push_back(rand());
@@ -89,7 +90,19 @@ int main()
 	{
 		std::cout << v2[i] << std::endl;
 	}
+	*/
+	std::vector<int> v2;
+	std::mt19937 gen;
+	gen.seed(time(0));
+	std::generate_n(std::back_inserter(v2), v.size(), [&gen]() {
 
+		return gen(); });
+	for (int i = 0; i < v2.size(); i++)
+	{
+		std::cout << "Helloworld" << std::endl;
+		std::cout << v2[i] << std::endl;
+	}
+	
 	//10 Вычислила сумму чисел в V2 
 	int sum = std::accumulate(v2.begin(), v2.end(), 0);
 	std::cout << sum << std::endl;
